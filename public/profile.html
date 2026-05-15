@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Profile</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body class="profilebody">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 shadow">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="index.html">
+
+🍴 Recipe App
+
+</a>
+
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav"
+>
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div
+class="collapse navbar-collapse"
+id="navbarNav"
+>
+
+<ul class="navbar-nav ms-auto align-items-center gap-2">
+
+<li class="nav-item">
+
+<a
+href="index.html"
+class="nav-btn home-btn"
+>
+
+Home
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="categories.html"
+class="nav-btn category-btn"
+>
+
+Categories
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="search.html"
+class="nav-btn search-btn"
+>
+
+Search
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="about.html"
+class="nav-btn about-btn"
+>
+
+About
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="contact.html"
+class="nav-btn contact-btn"
+>
+
+Contact
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="login.html"
+class="nav-btn login-btn"
+>
+
+Login
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="signup.html"
+class="nav-btn signup-btn"
+>
+
+Signup
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="admin.html"
+class="nav-btn admin-btn"
+>
+
+Admin
+
+</a>
+
+</li>
+
+</ul>
+</div>
+
+</div>
+
+</nav>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <div class="profilebox">
+
+                <h2 class="mb-4">
+                    User Profile
+                </h2>
+
+                <input type="text" class="form-control mb-3" placeholder="Enter Name" id="pname">
+
+                <input type="email" class="form-control mb-3" placeholder="Enter Email" id="pemail">
+
+                <input type="number" class="form-control mb-3" placeholder="Enter Age" id="page">
+
+                <input type="text" class="form-control mb-3" placeholder="Favorite Food">
+
+                <button class="btn btn-success w-100" onclick="saveProfile()">
+                    Save Profile
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function saveProfile(){
+
+    var name = document.getElementById("pname").value
+
+    var email = document.getElementById("pemail").value
+
+    var age = document.getElementById("page").value
+
+    if(name == "" || email == "" || age == ""){
+
+        alert("Fill all fields")
+
+    }
+
+    else{
+
+        alert("Profile Saved")
+
+    }
+
+}
+window.onload = function(){
+
+const user = JSON.parse(
+localStorage.getItem("user")
+)
+
+if(user){
+
+document.getElementById("pname").value =
+user.name
+
+document.getElementById("pemail").value =
+user.email
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
