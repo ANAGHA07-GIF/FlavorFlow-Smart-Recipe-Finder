@@ -114,28 +114,57 @@ window.location.href =
 //////////////////////////////
 // SHOW ALL RECIPES
 //////////////////////////////
-
 function showAllRecipes(){
 
-localStorage.removeItem(
-"ingredients"
+const container =
+document.getElementById("recipeContainer")
+
+let recipes = JSON.parse(
+localStorage.getItem("recipes")
+) || []
+
+const selectedCategory =
+localStorage.getItem("selectedCategory")
+
+// CATEGORY FILTER
+if(selectedCategory){
+
+recipes = recipes.filter(recipe =>
+
+recipe.category.toLowerCase() ===
+selectedCategory.toLowerCase()
+
 )
 
-localStorage.removeItem(
-"recipeSearch"
-)
+}
 
-localStorage.removeItem(
-"selectedCategory"
-)
+container.innerHTML = ""
 
-localStorage.setItem(
-"showAll",
-"true"
-)
+recipes.forEach(recipe => {
 
-window.location.href =
-"recipe.html"
+container.innerHTML += `
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+<div class="recipe-card">
+
+<img src="${recipe.image}">
+
+<h2>${recipe.name}</h2>
+
+<p>🔥 ${recipe.calories} Calories</p>
+
+<button onclick="viewRecipe(${recipe.id})">
+View Details
+</button>
+
+</div>
+
+</div>
+
+`
+
+})
 
 }
 
