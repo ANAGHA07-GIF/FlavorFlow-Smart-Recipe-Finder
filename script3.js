@@ -616,7 +616,7 @@ localStorage.setItem(
 JSON.stringify(favorites)
 
 )
-
+localStorage.removeItem("selectedCategory")
 location.reload()
 
 })
