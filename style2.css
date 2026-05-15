@@ -1,232 +1,90 @@
-/* =========================
-   GLOBAL BODY STYLING
-========================= */
+body
+{
+   background:linear-gradient(rgba(128,0,128,0.65),rgba(255,105,180,0.65)),
+   url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1974&auto=format&fit=crop");
+   background-size:cover;
+   background-position:center;
+   background-repeat:no-repeat;
+   background-attachment:fixed;
+   font-family:Arial, sans-serif;
+   min-height:100vh;
+   backdrop-filter:blur(1px);
+   }
 
-body{
-
-/* Pink-Purple Gradient Overlay + Background Image */
-
-background:
-linear-gradient(
-rgba(128,0,128,0.65),
-rgba(255,105,180,0.65)
-),
-url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1974&auto=format&fit=crop");
-
-background-size:cover;
-
-background-position:center;
-
-background-repeat:no-repeat;
-
-background-attachment:fixed;
-
-/* Font */
-
-font-family:Arial, sans-serif;
-
-/* Full Screen Height */
-
-min-height:100vh;
-
-/* Watermark Style Intensity */
-
-backdrop-filter:blur(1px);
-
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar{
-
-background:linear-gradient(
-to right,
-#6a0dad,
-#ff1493
-) !important;
-
-box-shadow:0 4px 15px rgba(0,0,0,0.4);
-
-}
-
-/* =========================
-   BRAND LOGO
-========================= */
-
-.navbar-brand{
-
-font-size:28px;
-
-letter-spacing:1px;
-
-font-weight:bold;
-
-color:white !important;
-
-text-shadow:2px 2px 5px rgba(0,0,0,0.3);
-
-}
-
-/* =========================
-   CARDS
-========================= */
-
+.navbar
+{
+   background:linear-gradient(to right,#6a0dad,#ff1493) ;
+   box-shadow:0 4px 15px rgba(0,0,0,0.4);
+   }
+.navbar-brand
+{
+   font-size:28px;
+   letter-spacing:1px;
+   font-weight:bold;
+   color:white !important;
+   text-shadow:2px 2px 5px rgba(0,0,0,0.3);
+   }
 .card{
-
-border:none;
-
-border-radius:20px;
-
-overflow:hidden;
-
-transition:0.4s;
-
-animation:fadeIn 1s;
-
-background:rgba(255,255,255,0.92);
-
-backdrop-filter:blur(5px);
-
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-
-}
-
-/* Card Hover Effect */
-
+   border:none;
+   border-radius:20px;
+   overflow:hidden;
+   transition:0.4s;
+   animation:fadeIn 1s;
+   background:rgba(255,255,255,0.92);
+   backdrop-filter:blur(5px);
+   box-shadow:0 8px 20px rgba(0,0,0,0.15);
+   }
 .card:hover{
-
-transform:
-translateY(-10px)
-scale(1.02);
-
-box-shadow:0 15px 30px rgba(0,0,0,0.25);
-
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
+   transform:  
+   translateY(-10px)
+   scale(1.02);
+   box-shadow:0 15px 30px rgba(0,0,0,0.25);
+ }
 .btn{
-
-border:none;
-
-font-weight:bold;
-
-transition:0.3s;
-
-border-radius:12px;
-
-padding:10px 22px;
-
-}
-
-/* =========================
-   PINK BUTTONS
-========================= */
-
+   border:none;
+   font-weight:bold;
+   transition:0.3s;
+   border-radius:12px;
+   padding:10px 22px;
+   }
 .btn-warning{
-
-background:#ff4da6;
-
-color:white;
-
-}
-
-/* Hover */
-
+   background:#ff4da6;
+   color:white;
+   }
 .btn-warning:hover{
-
-background:#c2185b;
-
-color:white;
-
-transform:scale(1.08);
-
-}
-
-/* =========================
-   DARK BUTTONS
-========================= */
-
+   background:#c2185b;
+   color:white;
+   transform:scale(1.08);
+   }
 .btn-dark{
+   background:#6a0dad;
+   color:white;
+   }
+   .btn-dark:hover{
+   background:#4b0082;
+   transform:scale(1.05);
 
-background:#6a0dad;
-
-color:white;
-
-}
-
-/* Hover */
-
-.btn-dark:hover{
-
-background:#4b0082;
-
-transform:scale(1.05);
-
-}
-
-/* =========================
-   FORMS
-========================= */
-
+   }
 .form-control{
+   border-radius:12px;
+   padding:12px;
+   border:2px solid #ff99cc;
+   transition:0.3s;
+   background:rgba(255,255,255,0.9);
 
-border-radius:12px;
-
-padding:12px;
-
-border:2px solid #ff99cc;
-
-transition:0.3s;
-
-background:rgba(255,255,255,0.9);
-
-}
-
-/* =========================
-   INPUT FOCUS
-========================= */
-
+   }
 .form-control:focus{
-
-border-color:#c2185b;
-
-box-shadow:0 0 12px rgba(255,20,147,0.5);
-
-}
-
-/* =========================
-   TEXTAREA
-========================= */
-
+   border-color:#c2185b;
+   box-shadow:0 0 12px rgba(255,20,147,0.5);
+   }
 textarea{
-
-resize:none;
-
-}
-
-/* =========================
-   HEADINGS
-========================= */
-
+   resize:none;
+   }
 h1,h2,h3{
-
-font-weight:bold;
-
-color:#800080;
-
-text-shadow:1px 1px 4px rgba(255,255,255,0.5);
-
-}
-
-/* =========================
-   IMAGES
-========================= */
-
+   font-weight:bold;
+   color:#800080;
+   text-shadow:1px 1px 4px rgba(255,255,255,0.5);
+   }
 img{
 
 max-width:100%;
@@ -381,9 +239,7 @@ color:#5a005a;
 
 }
 
-/* =========================
-   SCROLLBAR STYLING
-========================= */
+/*SCROLLBAR STYLING*/
 
 ::-webkit-scrollbar{
 
