@@ -133,9 +133,7 @@ users.length
 
 }
 
-//////////////////////////////
 // CALORIE CALCULATOR
-//////////////////////////////
 
 function calculateCalories(){
 
@@ -156,11 +154,7 @@ document.getElementById(
 
 }
 
-//////////////////////////////
 // LOAD CONTACT MESSAGES
-//////////////////////////////
-
-
 function loadMessages(){
 
 const messages = JSON.parse(
@@ -211,10 +205,7 @@ container.innerHTML += `
 })
 
 }
-//////////////////////////////
 // PAGE LOAD
-//////////////////////////////
-
 window.onload = () => {
 
 displayRecipes()

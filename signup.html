@@ -161,16 +161,17 @@ Admin
                 <h2 class="text-center mb-4">
                     Signup
                 </h2>
+                <form onsubmit="signupUser()">
 
                 <input type="text" class="form-control mb-3" placeholder="Enter Username" id="username">
 
-                <input type="email" class="form-control mb-3" placeholder="Enter Email" id="email">
+                <input type="email" class="form-control mb-3" placeholder="Enter Email" id="email" >
 
                 <input type="password" class="form-control mb-3" placeholder="Enter Password" id="pass">
 
-                <button class="btn btn-warning w-100" onclick="signupUser()">
+                <button class="btn btn-warning w-100" type="submit">
                     Signup
-                </button>
+                </button></form>
 
                 <p class="text-center mt-3">
                     Already have an account?
