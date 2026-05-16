@@ -39,36 +39,39 @@ alert('Message Sent Successfully 💌')
 window.location.reload()
 
 }
+//////////////////////////////
+// CONTACT FORM
+//////////////////////////////
+
 function sendMessage(event){
 
 event.preventDefault()
 
-const name =
-document.getElementById("name").value
+const messageData = {
 
-const email =
-document.getElementById("email").value
+name:
+document.querySelectorAll(".form-control")[0].value,
 
-const message =
-document.getElementById("message").value
+email:
+document.querySelectorAll(".form-control")[1].value,
 
-const contact = {
-
-name,
-email,
-message
+message:
+document.querySelector("textarea").value
 
 }
 
-let contacts = JSON.parse(
-localStorage.getItem("contacts")
+// GET OLD MESSAGES
+let messages = JSON.parse(
+localStorage.getItem("messages")
 ) || []
 
-contacts.push(contact)
+// ADD NEW MESSAGE
+messages.push(messageData)
 
+// SAVE
 localStorage.setItem(
-"contacts",
-JSON.stringify(contacts)
+"messages",
+JSON.stringify(messages)
 )
 
 alert("Message Sent Successfully 💌")

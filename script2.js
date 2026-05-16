@@ -294,16 +294,18 @@ document.getElementById(
 // LOAD CONTACT MESSAGES
 //////////////////////////////
 
+//////////////////////////////
+// LOAD CONTACT MESSAGES
+//////////////////////////////
+
 function loadMessages(){
 
-const contacts = JSON.parse(
-localStorage.getItem("contacts")
+const messages = JSON.parse(
+localStorage.getItem("messages")
 ) || []
 
 const container =
-document.getElementById(
-"messageContainer"
-)
+document.getElementById("messageContainer")
 
 if(!container){
 
@@ -311,37 +313,33 @@ return
 
 }
 
-container.innerHTML = ""
+if(messages.length === 0){
 
-if(contacts.length === 0){
+container.innerHTML = `
 
-container.innerHTML =
+<h4 class="text-danger">
+No Messages Yet ❌
+</h4>
 
-`<p class="text-muted">
-No Messages Yet
-</p>`
+`
 
 return
 
 }
 
-contacts.forEach(contact => {
+container.innerHTML = ""
+
+messages.forEach(msg => {
 
 container.innerHTML += `
 
-<div class="border rounded p-3 mb-3">
+<div class="card p-3 mb-3">
 
-<h5>
-👤 ${contact.name}
-</h5>
+<h5>👤 ${msg.name}</h5>
 
-<p>
-📧 ${contact.email}
-</p>
+<p>📧 ${msg.email}</p>
 
-<p>
-💬 ${contact.message}
-</p>
+<p>💬 ${msg.message}</p>
 
 </div>
 
