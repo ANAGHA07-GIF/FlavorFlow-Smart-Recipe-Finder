@@ -1,220 +1,86 @@
-//////////////////////////////
 // ADD RECIPE
-//////////////////////////////
-
 function addRecipe(event){
+    event.preventDefault()
+    const recipe = {
+    id: Date.now(),
+    name:   document.getElementById("recipeName").value,
+    ingredients:    document.getElementById("ingredients").value.split(",").map(item => item.trim()),
+    category:   document.getElementById("category").value,
+    calories:   document.getElementById("calories").value,
+    steps:  document.getElementById("steps").value.trim(),
+    image:  document.getElementById("image").value
+    }
 
-event.preventDefault()
+    let recipes = JSON.parse(localStorage.getItem("recipes")) || []
+    recipes.push(recipe)
+    localStorage.setItem("recipes",JSON.stringify(recipes))
+    alert("Recipe Added Successfully 👨‍🍳")
+    window.location.href =
+    "manage-recipes.html"
+    }
 
-const recipe = {
-
-id: Date.now(),
-
-name:
-document.getElementById("recipeName").value,
-
-ingredients:
-document.getElementById("ingredients")
-.value
-.split(",")
-.map(item => item.trim()),
-
-category:
-document.getElementById("category").value,
-
-calories:
-document.getElementById("calories").value,
-
-steps:
-document.getElementById("steps")
-.value
-.trim(),
-
-image:
-document.getElementById("image").value
-
-}
-
-let recipes = JSON.parse(
-localStorage.getItem("recipes")
-) || []
-
-recipes.push(recipe)
-
-localStorage.setItem(
-"recipes",
-JSON.stringify(recipes)
-)
-
-alert("Recipe Added Successfully 👨‍🍳")
-
-window.location.href =
-"manage-recipes.html"
-
-}
-
-//////////////////////////////
 // DISPLAY RECIPES
-//////////////////////////////
-
 function displayRecipes(){
+    const recipes = JSON.parse(localStorage.getItem('recipes')) || []
+    const container =
+    document.getElementById('recipeContainer')
+    if(!container){
+        return
+        }
+    container.innerHTML = ''
+    if(recipes.length === 0){
+        container.innerHTML = `
+        <div class="col-12 text-center">
+        <h2 class="text-danger">No Recipes Added Yet 😢</h2></div>`
+        return
+        }
 
-const recipes = JSON.parse(
-localStorage.getItem('recipes')
-) || []
-
-const container =
-document.getElementById('recipeContainer')
-
-if(!container){
-
-return
-
-}
-
-container.innerHTML = ''
-
-if(recipes.length === 0){
-
-container.innerHTML = `
-
-<div class="col-12 text-center">
-
-<h2 class="text-danger">
-No Recipes Added Yet 😢
-</h2>
-
-</div>
-
+    recipes.forEach(recipe => {
+    const card = `
+    <div class="col-lg-4 col-md-6">
+    <div class="card shadow h-100">
+    <img src="${recipe.image}"
+    class="card-img-top"
+    height="250"
+    style="object-fit:cover">
+    <div class="card-body text-center">
+    <h3>${recipe.name}</h3>
+    <p class="text-danger fs-5">🔥 ${recipe.calories} Calories</p>
+    <p>📂 ${recipe.category}</p>
+    <button class="btn btn-dark" onclick="viewRecipe(${recipe.id})">View</button>
+    <button class="btn btn-danger mt-2" onclick="deleteRecipe(${recipe.id})">Delete</button>
+    </div>
+    </div>
+    </div>
 `
-
-return
-
-}
-
-recipes.forEach(recipe => {
-
-const card = `
-
-<div class="col-lg-4 col-md-6">
-
-<div class="card shadow h-100">
-
-<img
-src="${recipe.image}"
-class="card-img-top"
-height="250"
-style="object-fit:cover"
->
-
-<div class="card-body text-center">
-
-<h3>
-${recipe.name}
-</h3>
-
-<p class="text-danger fs-5">
-
-🔥 ${recipe.calories} Calories
-
-</p>
-
-<p>
-
-📂 ${recipe.category}
-
-</p>
-
-<button
-class="btn btn-dark"
-onclick="viewRecipe(${recipe.id})"
->
-
-View
-
-</button>
-
-<button
-class="btn btn-danger mt-2"
-onclick="deleteRecipe(${recipe.id})"
->
-
-Delete
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`
-
-container.innerHTML += card
-
-})
+    container.innerHTML += card
+    })
 
 }
-
-//////////////////////////////
 // DELETE RECIPE
-//////////////////////////////
-
 function deleteRecipe(id){
+    let recipes = JSON.parse(
+    localStorage.getItem('recipes')) || []
+    recipes = recipes.filter(recipe =>
+    recipe.id !== id
+    )
+    localStorage.setItem('recipes',JSON.stringify(recipes))
+    alert('Recipe Deleted ❌')
+    displayRecipes()
+    loadDashboard()
+    }
 
-let recipes = JSON.parse(
-localStorage.getItem('recipes')
-) || []
-
-recipes = recipes.filter(recipe =>
-
-recipe.id !== id
-
-)
-
-localStorage.setItem(
-'recipes',
-JSON.stringify(recipes)
-)
-
-alert('Recipe Deleted ❌')
-
-displayRecipes()
-
-loadDashboard()
-
-}
-
-//////////////////////////////
 // VIEW RECIPE
-//////////////////////////////
+
 
 function viewRecipe(id){
-
-const recipes = JSON.parse(
-localStorage.getItem('recipes')
-) || []
-
-const recipe = recipes.find(r =>
-
-r.id === id
-
-)
-
-localStorage.setItem(
-'selectedRecipe',
-JSON.stringify(recipe)
-)
-
-window.location.href =
-'recipe.html'
+    const recipes = JSON.parse(localStorage.getItem('recipes')) || []
+    const recipe = recipes.find(r =>r.id === id)
+    localStorage.setItem('selectedRecipe',JSON.stringify(recipe))
+    window.location.href ='recipe.html'
 
 }
-
-//////////////////////////////
 // DASHBOARD
-//////////////////////////////
 function loadDashboard(){
 
 const recipes = JSON.parse(
@@ -294,9 +160,6 @@ document.getElementById(
 // LOAD CONTACT MESSAGES
 //////////////////////////////
 
-//////////////////////////////
-// LOAD CONTACT MESSAGES
-//////////////////////////////
 
 function loadMessages(){
 
