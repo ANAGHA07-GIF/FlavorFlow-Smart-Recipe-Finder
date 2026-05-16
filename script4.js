@@ -43,24 +43,32 @@ window.location.reload()
 // CONTACT FORM
 //////////////////////////////
 
+//////////////////////////////
+// CONTACT FORM
+//////////////////////////////
+
 function sendMessage(event){
 
 event.preventDefault()
 
+const name =
+document.querySelectorAll(".form-control")[0].value
+
+const email =
+document.querySelectorAll(".form-control")[1].value
+
+const message =
+document.querySelector("textarea").value
+
 const messageData = {
 
-name:
-document.querySelectorAll(".form-control")[0].value,
-
-email:
-document.querySelectorAll(".form-control")[1].value,
-
-message:
-document.querySelector("textarea").value
+name:name,
+email:email,
+message:message
 
 }
 
-// GET OLD MESSAGES
+// OLD MESSAGES
 let messages = JSON.parse(
 localStorage.getItem("messages")
 ) || []
@@ -75,7 +83,5 @@ JSON.stringify(messages)
 )
 
 alert("Message Sent Successfully 💌")
-
-window.location.reload()
 
 }
